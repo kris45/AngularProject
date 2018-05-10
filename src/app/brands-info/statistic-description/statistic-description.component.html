@@ -1,0 +1,18 @@
+<div class="content-block">
+  <form class="search-block" (ngSubmit)="search()" [formGroup]="brandsForm">
+    <input type="text" class="search-field" name="name" formControlName="searchBrand"/>
+    <div class="search-block_button">
+      <button class="button" type="submit">Search</button>
+      <button class="button" type="reset" (click)="reset()">Reset</button>
+    </div>
+  </form>
+  <div class="content-info">
+    <div class="content-description">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam venenatis venenatis purus nec aliquam. Proin non tincidunt tellus. Vestibulum semper sit amet arcu vel mollis. Cras eu placerat massa. Integer fringilla non est ut luctus. Sed facilisis ut lorem ut feugiat. Integer nec bibendum enim, ut dapibus nibh. Nunc sollicitudin nisi dolor, egestas congue urna dignissim vitae. Nulla sem est, pellentesque ac suscipit vitae, tempor a diam. Aliquam lacus nisi, sollicitudin tristique lacus id, mattis dapibus nisl.
+    </div>
+    <div class="chart">
+    </div>
+  </div>
+  <button class="button sort-button" (click)="sort()">Sort</button>
+  <app-brands [brands]="filteredBrandsList"></app-brands>
+</div>
