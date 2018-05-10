@@ -11,7 +11,7 @@ export class BrandsService {
 
   getData(): Observable<any> {
     return this.http.get('/assets/products.json')
-      .map((res: { brandsList: Brand[], BrandsInfo}) => {
+      .map((res: { brandsList: Brand[], details}) => {
         return res;
       });
   }

@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import {Brand} from '../models/brand';
+import {Brand, ChartData} from '../models';
 import {BrandsService} from '../services/brands.service';
 
 @Component({
@@ -17,6 +17,31 @@ export class StatisticDescriptionComponent implements OnInit {
 
   filteredBrandsList: Brand[] = [];
   initialBrandsList: Brand[] = [];
+  statisticBrands = {};
+  chartDataList = [{
+    name: 'Brands',
+    data: [{
+      name: 'Chrome',
+      y: 61.41,
+      sliced: true,
+      selected: true
+    }, {
+      name: 'Internet Explorer',
+      y: 11.84
+    }, {
+      name: 'Firefox',
+      y: 10.85
+    }, {
+      name: 'Edge',
+      y: 4.67
+    }, {
+      name: 'Safari',
+      y: 4.18
+    }, {
+      name: 'Other',
+      y: 7.05
+    }]
+  }];
   sortValue = false;
 
   constructor(private brandsService: BrandsService) {
@@ -24,10 +49,11 @@ export class StatisticDescriptionComponent implements OnInit {
 
   ngOnInit() {
     this.brandsService.getData()
-      .subscribe(brandsList => {
-        console.log(brandsList);
-        // this.filteredBrandsList = brandsList;
-        // this.initialBrandsList = brandsList;
+      .subscribe(brandsInfo => {
+        console.log(brandsInfo);
+        this.filteredBrandsList = brandsInfo.brandsList;
+        this.initialBrandsList = brandsInfo.brandsList;
+        //this.statisticBrands = brandsInfo.details;
       });
   }
 

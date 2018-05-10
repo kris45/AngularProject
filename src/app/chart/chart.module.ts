@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ChartModule } from 'angular-highcharts';
 
-import {ChartComponent} from '../content/chart/chart.component';
+import { ChartComponent } from './chart/chart.component';
 
 
 @NgModule({
   imports: [
     CommonModule,
+    ChartModule
   ],
   declarations: [
     ChartComponent
@@ -16,4 +18,4 @@ import {ChartComponent} from '../content/chart/chart.component';
     ChartComponent
   ]
 })
-export class ChartModule { }
+export class CustomChartModule { }
