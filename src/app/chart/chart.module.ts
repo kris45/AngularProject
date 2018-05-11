@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ChartModule } from 'angular-highcharts';
 
 import { ChartComponent } from './chart/chart.component';
+import { ChartService } from './services/chart.service';
 
 
 @NgModule({
@@ -13,7 +14,7 @@ import { ChartComponent } from './chart/chart.component';
   declarations: [
     ChartComponent
   ],
-  providers: [],
+  providers: [ChartService],
   exports: [
     ChartComponent
   ]

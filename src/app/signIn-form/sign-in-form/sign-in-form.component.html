@@ -1,0 +1,9 @@
+<div class="content-block">
+  <form class="search-block" (ngSubmit)="authorize()" [formGroup]="authForm">
+    Name: <input type="text" class="search-field" name="name" formControlName="name"/>
+    Password: <input type="password" class="search-field" name="password" formControlName="password"/>
+    <div class="search-block_button">
+      <button class="button" type="submit">Sign In</button>
+    </div>
+  </form>
+</div>

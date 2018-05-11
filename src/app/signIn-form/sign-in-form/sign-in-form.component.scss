@@ -1,0 +1,29 @@
+.content-block {
+  background: #fff;
+  margin: 30px 0 30px;
+  padding: 20px;
+  width: 700px;
+  float: left;
+  border-radius: 8px;
+  position: relative;
+}
+
+.search-field {
+  margin-right: 20px;
+  line-height: 25px;
+}
+
+.search-block_button {
+  display: inline-block;
+}
+
+.button {
+  background: #4f3222;
+  padding: 10px;
+  color: #fff;
+  border-radius: 8px;
+}
+
+.button:hover {
+  cursor: pointer;
+}

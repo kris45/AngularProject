@@ -1,7 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import {Brand, ChartData} from '../models';
-import {BrandsService} from '../services/brands.service';
+import { Brand } from '../models';
+import { BrandsService } from '../services/brands.service';
+import { ChartService } from '../../chart/services/chart.service';
 
 @Component({
   selector: 'app-statistic-description',
@@ -17,43 +18,21 @@ export class StatisticDescriptionComponent implements OnInit {
 
   filteredBrandsList: Brand[] = [];
   initialBrandsList: Brand[] = [];
-  statisticBrands = {};
-  chartDataList = [{
-    name: 'Brands',
-    data: [{
-      name: 'Chrome',
-      y: 61.41,
-      sliced: true,
-      selected: true
-    }, {
-      name: 'Internet Explorer',
-      y: 11.84
-    }, {
-      name: 'Firefox',
-      y: 10.85
-    }, {
-      name: 'Edge',
-      y: 4.67
-    }, {
-      name: 'Safari',
-      y: 4.18
-    }, {
-      name: 'Other',
-      y: 7.05
-    }]
-  }];
+  statisticDetails;
+  chartTitle;
+  chartDataList;
   sortValue = false;
 
-  constructor(private brandsService: BrandsService) {
+  constructor(private brandsService: BrandsService, private chartService: ChartService) {
   }
 
   ngOnInit() {
     this.brandsService.getData()
       .subscribe(brandsInfo => {
-        console.log(brandsInfo);
         this.filteredBrandsList = brandsInfo.brandsList;
         this.initialBrandsList = brandsInfo.brandsList;
-        //this.statisticBrands = brandsInfo.details;
+        this.statisticDetails = brandsInfo.details;
+        this.formChart();
       });
   }
 
@@ -69,6 +48,11 @@ export class StatisticDescriptionComponent implements OnInit {
   sort() {
     ({list: this.filteredBrandsList, sortValue: this.sortValue} =
       this.brandsService.getSortedList(this.filteredBrandsList, this.sortValue));
+  }
+
+  formChart() {
+    ({title: this.chartTitle, chartConfig: this.chartDataList} =
+      this.chartService.getChartConfig(this.initialBrandsList, this.statisticDetails));
   }
 
 }
