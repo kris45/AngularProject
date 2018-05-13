@@ -1,0 +1,5 @@
+<div class="signBlock">
+  <a class="signIn" (click)="signIn()"  *ngIf="!authService.isSignedIn">Login</a>
+  <a class="signOut" routerLink="/Home" (click)="signOut()" *ngIf="authService.isSignedIn">Logout</a>
+</div>
+

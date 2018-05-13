@@ -1,30 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { PersonalInfoComponent } from './personal-info/personal-info.component';
-import { RouterModule, Routes } from '@angular/router';
-import {AuthGuard} from '../signIn-form/services/authorization.guard';
+import { personalInfoRouterComponents, PersonalInfoRoutingModule } from "./personal-info-routing.module";
 
-const routes: Routes = [
-  {
-    path: 'personalInfo',
-    component: PersonalInfoComponent,
-    canActivate: [AuthGuard]
-  }
-];
 
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forRoot(routes)
+    PersonalInfoRoutingModule
   ],
   declarations: [
-    PersonalInfoComponent
+    personalInfoRouterComponents
   ],
   providers: [],
   exports: [
-    PersonalInfoComponent,
-    RouterModule
+    personalInfoRouterComponents
   ]
 })
 export class PersonalInfoModule { }

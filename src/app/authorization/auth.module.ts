@@ -1,19 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { LabelsRoutingModule, labelsRouterComponents } from './labels-routing.module';
+import { AuthComponent } from './auth/auth.component';
+
+
 
 @NgModule({
   imports: [
     CommonModule,
-    LabelsRoutingModule
   ],
   declarations: [
-    labelsRouterComponents
+    AuthComponent
   ],
   providers: [],
   exports: [
-    labelsRouterComponents
+    AuthComponent
   ]
 })
-export class LabelsModule { }
+export class AuthModule { }
